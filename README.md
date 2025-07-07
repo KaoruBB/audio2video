@@ -28,6 +28,7 @@ pip install audio2video
 ### Basic Usage
 
 ```bash
+python main.py -a "audio.wav" -i "image.png" -o "output_video.mp4" --verbose
 # Convert audio + image to video
 audio2video -a podcast.wav -i thumbnail.png -o output.mp4
 
