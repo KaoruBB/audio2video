@@ -28,12 +28,14 @@ pip install audio2video
 ### Basic Usage
 
 ```bash
-python main.py -a "audio.wav" -i "image.png" -o "output_video.mp4" --verbose
 # Convert audio + image to video
 audio2video -a podcast.wav -i thumbnail.png -o output.mp4
 
 # Using short flags
 audio2video -a audio.mp3 -i image.jpg -o video.mp4
+
+# Enable verbose output
+audio2video -a audio.wav -i image.png -o output.mp4 --verbose
 ```
 
 ### Advanced Options
@@ -45,8 +47,8 @@ audio2video -a audio.wav -i image.png -o output.mp4 --crf 18
 # Set custom resolution
 audio2video -a audio.wav -i image.png -o output.mp4 --resolution 1920x1080
 
-# Add fade effects
-audio2video -a audio.wav -i image.png -o output.mp4 --fade-in 2 --fade-out 3
+# Set frames per second
+audio2video -a audio.wav -i image.png -o output.mp4 --fps 30
 ```
 
 ## 📖 Use Cases
@@ -81,7 +83,7 @@ done
 ### Local Installation
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/audio2video.git
+git clone https://github.com/KaoruBB/audio2video.git
 cd audio2video
 
 # Install with uv (recommended)
@@ -109,8 +111,7 @@ uv pip install -r requirements.txt
 
 ```
 usage: audio2video [-h] -a AUDIO -i IMAGE -o OUTPUT [--crf CRF] 
-                   [--resolution RESOLUTION] [--fps FPS] [--fade-in FADE_IN] 
-                   [--fade-out FADE_OUT] [--verbose]
+                   [--resolution RESOLUTION] [--fps FPS] [--verbose]
 
 Convert audio files with static images to video format
 
@@ -125,30 +126,7 @@ optional arguments:
   --resolution RESOLUTION
                         Output resolution (e.g., 1920x1080) [default: 1920x1080]
   --fps FPS             Frames per second [default: 1]
-  --fade-in FADE_IN     Audio fade-in duration in seconds [default: 0]
-  --fade-out FADE_OUT   Audio fade-out duration in seconds [default: 0]
   --verbose             Enable verbose output
-```
-
-## 🔧 Configuration
-
-Create a `audio2video.toml` file for default settings:
-
-```toml
-[defaults]
-crf = 23
-resolution = "1920x1080"
-fps = 1
-fade_in = 0
-fade_out = 0
-
-[youtube]
-crf = 18
-resolution = "1920x1080"
-
-[instagram]
-resolution = "1080x1080"
-crf = 23
 ```
 
 ## 🤝 Contributing
@@ -180,9 +158,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-- 📖 [Documentation](https://github.com/yourusername/audio2video/wiki)
-- 🐛 [Issue Tracker](https://github.com/yourusername/audio2video/issues)
-- 💬 [Discussions](https://github.com/yourusername/audio2video/discussions)
+- 📖 [Documentation](https://github.com/KaoruBB/audio2video/wiki)
+- 🐛 [Issue Tracker](https://github.com/KaoruBB/audio2video/issues)
+- 💬 [Discussions](https://github.com/KaoruBB/audio2video/discussions)
 
 ---
 
