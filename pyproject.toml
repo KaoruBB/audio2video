@@ -5,7 +5,7 @@ description = "Convert audio files with static images to video format for YouTub
 readme = "README.md"
 requires-python = ">=3.8"
 authors = [
-    {name = "Your Name", email = "your.email@example.com"},
+    {name = "Kaoru Babasaki", email = "kaorubabasaki@gmail.com"},
 ]
 keywords = ["audio", "video", "conversion", "youtube", "moviepy", "podcast"]
 license = "MIT"
@@ -34,10 +34,10 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/yourusername/audio2video"
-Documentation = "https://github.com/yourusername/audio2video/wiki"
-Repository = "https://github.com/yourusername/audio2video.git"
-Issues = "https://github.com/yourusername/audio2video/issues"
+Homepage = "https://github.com/KaoruBB/audio2video"
+Documentation = "https://github.com/KaoruBB/audio2video/wiki"
+Repository = "https://github.com/KaoruBB/audio2video.git"
+Issues = "https://github.com/KaoruBB/audio2video/issues"
 
 [project.scripts]
 audio2video = "audio2video.cli:main"
