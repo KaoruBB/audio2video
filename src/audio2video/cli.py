@@ -28,7 +28,8 @@ def wav_to_mp4(audio_file, image_file, output_file, crf=23, resolution="1920x108
         video.write_videofile(
             output_file,
             codec='libx264',
-            audio_codec='aac'
+            audio_codec='aac',
+            ffmpeg_params=['-crf', str(crf)]
         )
         
         if verbose:
