@@ -1,7 +1,7 @@
 import argparse
 import sys
 from pathlib import Path
-from moviepy import AudioFileClip, ImageClip
+from moviepy import AudioFileClip, ImageClip, vfx
 
 def wav_to_mp4(audio_file, image_file, output_file, crf=23, resolution="1920x1080", fps=1, fade_in=0, fade_out=0, verbose=False):
     """Convert audio file with static image to video format."""
@@ -11,9 +11,19 @@ def wav_to_mp4(audio_file, image_file, output_file, crf=23, resolution="1920x108
         audio = AudioFileClip(audio_file)
         
         if fade_in > 0:
-            audio = audio.audio_fadein(fade_in)
+            try:
+                audio = audio.fx(vfx.fadein, fade_in)
+            except AttributeError:
+                # fx method not available, skip fade effect
+                if verbose:
+                    print("Warning: Fade-in effect not available in this MoviePy version")
         if fade_out > 0:
-            audio = audio.audio_fadeout(fade_out)
+            try:
+                audio = audio.fx(vfx.fadeout, fade_out)
+            except AttributeError:
+                # fx method not available, skip fade effect
+                if verbose:
+                    print("Warning: Fade-out effect not available in this MoviePy version")
         
         if verbose:
             print(f"Loading image: {image_file}")
