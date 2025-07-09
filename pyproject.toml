@@ -8,12 +8,11 @@ authors = [
     {name = "Your Name", email = "your.email@example.com"},
 ]
 keywords = ["audio", "video", "conversion", "youtube", "moviepy", "podcast"]
-license = {text = "MIT"}
+license = "MIT"
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
     "Intended Audience :: End Users/Desktop",
-    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.8",
@@ -25,7 +24,7 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 dependencies = [
-    "moviepy>=1.0.3",
+    "moviepy>=2.2.1",
 ]
 
 [dependency-groups]
@@ -43,8 +42,12 @@ Issues = "https://github.com/yourusername/audio2video/issues"
 [project.scripts]
 audio2video = "audio2video.cli:main"
 
-[tool.hatch.build.targets.wheel]
-packages = ["src/audio2video"]
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
