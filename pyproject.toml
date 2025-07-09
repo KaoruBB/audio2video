@@ -55,4 +55,7 @@ addopts = "-v --tb=short"
 python_files = ["test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
-
+filterwarnings = [
+    "ignore:Exception ignored in.*FFMPEG_AudioReader.__del__:ResourceWarning",
+    "ignore:Exception ignored in.*FFMPEG_AudioReader.__del__:UserWarning",
+]

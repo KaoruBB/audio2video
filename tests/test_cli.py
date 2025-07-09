@@ -38,7 +38,7 @@ def test_wav_to_mp4_with_invalid_audio_file():
         assert excinfo.value.code == 1
 
 
-@patch('sys.argv', ['audio2video', '-a', 'test.wav', '-i', 'test.png', '-o', 'test.mp4'])
+@patch('sys.argv', ['audio2video', '-a', 'nonexistent.wav', '-i', 'nonexistent.png', '-o', 'test.mp4'])
 def test_main_with_missing_files():
     """Test main function with missing input files."""
     with pytest.raises(SystemExit) as excinfo:
