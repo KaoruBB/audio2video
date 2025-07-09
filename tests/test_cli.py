@@ -117,33 +117,6 @@ def test_wav_to_mp4_with_custom_resolution():
         assert os.path.getsize(output_file) > 0
 
 
-def test_wav_to_mp4_with_fade_effects():
-    """Test conversion with fade in/out effects."""
-    test_dir = Path(__file__).parent
-    audio_file = test_dir / "sound.wav"
-    image_file = test_dir / "image.png"
-    
-    # Skip test if files don't exist
-    if not audio_file.exists() or not image_file.exists():
-        pytest.skip("Test files not found")
-    
-    with tempfile.TemporaryDirectory() as tmpdir:
-        output_file = os.path.join(tmpdir, "test_fade.mp4")
-        
-        # Test with fade effects
-        wav_to_mp4(
-            audio_file=str(audio_file),
-            image_file=str(image_file),
-            output_file=output_file,
-            fade_in=0.5,
-            fade_out=0.5,
-            verbose=True
-        )
-        
-        # Check that output file was created
-        assert os.path.exists(output_file)
-        assert os.path.getsize(output_file) > 0
-
 
 @patch('sys.argv', ['audio2video', '-a', 'tests/sound.wav', '-i', 'tests/image.png', '-o', 'output.mp4'])
 def test_main_with_real_files():

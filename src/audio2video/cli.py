@@ -1,29 +1,14 @@
 import argparse
 import sys
 from pathlib import Path
-from moviepy import AudioFileClip, ImageClip, vfx
+from moviepy import AudioFileClip, ImageClip
 
-def wav_to_mp4(audio_file, image_file, output_file, crf=23, resolution="1920x1080", fps=1, fade_in=0, fade_out=0, verbose=False):
+def wav_to_mp4(audio_file, image_file, output_file, crf=23, resolution="1920x1080", fps=1, verbose=False):
     """Convert audio file with static image to video format."""
     try:
         if verbose:
             print(f"Loading audio: {audio_file}")
         audio = AudioFileClip(audio_file)
-        
-        if fade_in > 0:
-            try:
-                audio = audio.fx(vfx.fadein, fade_in)
-            except AttributeError:
-                # fx method not available, skip fade effect
-                if verbose:
-                    print("Warning: Fade-in effect not available in this MoviePy version")
-        if fade_out > 0:
-            try:
-                audio = audio.fx(vfx.fadeout, fade_out)
-            except AttributeError:
-                # fx method not available, skip fade effect
-                if verbose:
-                    print("Warning: Fade-out effect not available in this MoviePy version")
         
         if verbose:
             print(f"Loading image: {image_file}")
@@ -94,18 +79,6 @@ def main():
         help="Frames per second [default: 1]"
     )
     parser.add_argument(
-        "--fade-in", 
-        type=float, 
-        default=0, 
-        help="Audio fade-in duration in seconds [default: 0]"
-    )
-    parser.add_argument(
-        "--fade-out", 
-        type=float, 
-        default=0, 
-        help="Audio fade-out duration in seconds [default: 0]"
-    )
-    parser.add_argument(
         "--verbose", 
         action="store_true", 
         help="Enable verbose output"
@@ -137,8 +110,6 @@ def main():
         crf=args.crf,
         resolution=args.resolution,
         fps=args.fps,
-        fade_in=args.fade_in,
-        fade_out=args.fade_out,
         verbose=args.verbose
     )
 
