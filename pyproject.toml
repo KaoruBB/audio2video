@@ -3,7 +3,7 @@ name = "audio2video"
 version = "0.1.0"
 description = "Convert audio files with static images to video format for YouTube and social media"
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 authors = [
     {name = "Kaoru Babasaki", email = "kaorubabasaki@gmail.com"},
 ]
@@ -15,7 +15,6 @@ classifiers = [
     "Intended Audience :: End Users/Desktop",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",

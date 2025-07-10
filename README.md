@@ -77,7 +77,7 @@ done
 ## 🛠️ Development
 
 ### Prerequisites
-- Python 3.8+
+- Python 3.9+
 - FFmpeg (automatically handled by MoviePy)
 
 ### Local Installation
