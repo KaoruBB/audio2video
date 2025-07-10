@@ -131,7 +131,7 @@ optional arguments:
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+We welcome contributions! Please feel free to submit issues and pull requests.
 
 ### Ways to Contribute
 - 🐛 Report bugs
