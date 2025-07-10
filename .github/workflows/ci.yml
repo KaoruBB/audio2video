@@ -63,4 +63,10 @@ jobs:
     - name: Check build artifacts
       run: |
         ls -la dist/
-        uv run python -c "import tarfile; tarfile.open('dist/audio2video-0.1.0.tar.gz').extractall(); print('Source distribution OK')"
+        # Find and test the source distribution (version-agnostic)
+        TARFILE=$(find dist/ -name "*.tar.gz" | head -1)
+        if [ -n "$TARFILE" ]; then
+          uv run python -c "import tarfile; tarfile.open('$TARFILE').extractall(); print('Source distribution OK')"
+        else
+          echo "No .tar.gz file found in dist/" && exit 1
+        fi
